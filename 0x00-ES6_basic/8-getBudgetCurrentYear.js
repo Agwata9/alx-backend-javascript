@@ -1,13 +1,15 @@
-//Es6 computated property
+// Es6 computated property
 function getCurrentYear() {
   const date = new Date();
   return date.getFullYear();
 }
 
 export default function getBudgetForCurrentYear(income, gdp, capita) {
-  return {
+  const budget = {
     [`income-${getCurrentYear()}`]: income,
     [`gdp-${getCurrentYear()}`]: gdp,
-    [`capita-${getCurrentYear()}`]: capita
+    [`capita-${getCurrentYear()}`]: capita,
   };
+	
+  return budget;
 }
