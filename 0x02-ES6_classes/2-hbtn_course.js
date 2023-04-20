@@ -24,20 +24,20 @@ class HolbertonCourse {
   }
 
   // setters
-  set name(name) {
-    if (typeof name !== "string") {
-      throw new TypeError("Name must be a string");
-    }
-    this._name = name;
+  set name(newName) {
+    if (typeof newName !== 'string') throw TypeError('name must be a string');
+    this._name = newName;
   }
-  set length(length) {
-    if (typeof length !== "number") {
-      throw new TypeError("Length must be a number");
-    }
-    this._length = length;
+
+  set length(newLength) {
+    if (typeof newLength !== 'number') throw TypeError('length must be a number');
+    this._length = newLength;
   }
-  set students(students) {
-    this._students = students;
+
+  set students(newStudents) {
+    if (newStudents.constructor !== Array && newStudents.every((el) => typeof el === 'string')) {
+      throw TypeError('students must be an array of strings');
+    }
+    this._students = newStudents;
   }
 }
-
