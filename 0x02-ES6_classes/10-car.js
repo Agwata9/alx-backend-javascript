@@ -1,18 +1,20 @@
-const CLONE_CAR = Symbol();
-
 export default class Car {
   constructor(brand, motor, color) {
+    // Create objs
     this._brand = brand;
     this._motor = motor;
     this._color = color;
   }
 
-  [CLONE_CAR]() {
-    const clonedCar = new Car(this._brand, this._motor, this._color);
-    return clonedCar;
-  }
+  // Methods
 
   cloneCar() {
-    return this[CLONE_CAR]();
+    const NewObj = this.constructor[Symbol.species] || this.constructor;
+    const clone = new NewObj();
+    return clone;
   }
+
+  // Setters
+
+  // Getters
 }
